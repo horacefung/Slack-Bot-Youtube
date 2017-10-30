@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>  
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1 class="panel-title">Youtube Trending Descriptions</h1>
+            </div>
+            <table  class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr> 
+                       <th>Video ID</th>
+                       <th>Published</th>
+                       <th>Title</th>
+                       <th>Category</th>
+                       <th>Channel ID</th>
+                       <th>Channel Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for description in descriptions %}    <!-- Fill table rows for each station --> 
+                    <tr>
+                        <td><a href="/metrics?video_id={{ description.video_id }}">{{ description.video_id }}</a></td>
+                        <td>{{ description.publish_date }}</td>
+                        <td>{{ description.title }}</td>
+                        <td>{{ description.category }}</td>
+                        <td>{{ description.channel_id }}</td>
+                        <td>{{ description.channel_title }}</td>
+                    {% endfor %}
+                 </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
